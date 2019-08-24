@@ -11,8 +11,20 @@ class Book
 		$this->bookPublisher = $publisher;
 	}
 
-	public static function getBookAndPublisher()
+	public function getBookAndPublisher()
 	{
 		return $this->bookName . " " . $this->bookPublisher;
 	}
 }
+
+class BookFactory
+{
+	public static function printBook($name, $publisher)
+	{
+		return new Book($name, $publisher);
+	}
+}
+
+// Publishing Book.
+$book = BookFactory::printBook("Clean Architecture in PHP", "Learn PUB");
+print_r($book->getBookAndPublisher());
